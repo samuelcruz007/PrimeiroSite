@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>FoodBox</title>
+    <style>
+      body {
+        background: lightgray;
+      }
+      .topo {
+        background: rgb(148, 28, 23);
+        color: white;
+        padding: 10px;
+        border-radius: 29px;
+        text-align: center;
+      }
+      #menu-h {
+        list-style: none;
+        padding: 0px;
+        background-color: rgb(194, 23, 23);
+        border-radius: 20px;
+        margin: 1px;
+      }
+      #menu-h ul li {
+        display: inline;
+      }
+      #menu-h ul li a {
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        padding: 25px;
+        transition: background 0.9s;
+        border-radius: 20px;
+      }
+      #menu-h ul li a:hover {
+        background-color: rgb(139, 8, 41);
+      }
+      #menu-h ul li:last-child a {
+        float: right;
+        background-color: rgb(139, 62, 62);
+      }
+      h1 {
+        margin: 0;
+      }
+      h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+      h3 {
+        font-size: 30px;
+        margin-bottom: 5px;
+      }
+      h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        font-size: 20;
+      }
+      .produto {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        border: 5px solid white;
+      }
+      img {
+        width: 120px;
+        border-radius: 5px;
+        float: right;
+      }
+      .botao {
+        background: rgb(55, 184, 87);
+        border-radius: 10px;
+        text-align: center;
+        padding: 15px;
+        cursor: pointer;
+      }
+      .preco {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+</body>
+    <div class="topo">
+      <h1>Fast-food</h1>
+      <h2>Monte seu Box e receba em 15 minutos!</h2>
+    </div>
+    <nav>
+      <div id="menu-h">
+        <ul id="menu-h">
+          <li><a href="http://www.google.com">Inicio</a></li>
+          <li><a href="https://translate.google.com/?hl=pt-BR">Serviços</a></li>
+          <li><a href="https://www.apple.com/">Contatos</a></li>
+          <li><a href="#">Entrar</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h3>Primeiro, seu prato!</h3>
+    <div id="frango" class="produto" onclick="escolherfrango()">
+      <img
+        src="https://www.marolacomcarambola.com.br/wp-content/uploads/2020/03/receita-de-coxa-de-frango-assada-com-paprica-17.jpg"
+        alt="Frango"
+      />
+      <h4>Frango Yui-Yang</h4>
+      <p>Um pouco de batata, Um pouco de salada</p>
+      <p class="preco">R$ 19,90</p>
+      <p />
+    </div>
+    <div id="carne" class="produto" onclick="escolhercarne()">
+      <img
+        src="https://bosskitchen.com/wp-content/uploads/2021/04/carne-salada-214958.jpg"
+        alt="carne"
+      />
+      <h4>Carne e Salada</h4>
+      <p>Partida ao meio para parecer mais carne</p>
+      <p class="preco">R$ 24,90</p>
+      <p />
+    </div>
+    <h3>Agora sua bebida</h3>
+    <div id="coca" class="produto" onclick="escolhercoca()">
+      <img
+        src="https://ogimg.infoglobo.com.br/in/24503607-661-09d/FT1086A/73064201_Rio-de-Janeiro-RJ-18-11-2017Refrigerantes-em-lata-Coca-cola-original-coca-cola-zero-coca.jpg"
+        alt="coca"
+      />
+      <h4>Coca-Cola gelada</h4>
+      <p>Normal, zero ou stiver <br />Vai na sorte</p>
+      <p class="preco">R$ 5,90</p>
+      <p />
+    </div>
+    <div id="refresco" class="produto" onclick="escolherrefresco()">
+      <img
+        src="https://st.depositphotos.com/1029434/4296/i/600/depositphotos_42963157-stock-photo-fresh-ice-cold-water-in.jpg"
+        alt="refresco"
+      />
+      <h4>Refresco</h4>
+      <p>Pode ser suco, mas leva água</p>
+      <p class="preco">R$ 3,90</p>
+      <p />
+    </div>
+    <h3>Por fim, Sua sobremesa</h3>
+    <div id="pudim" class="produto" onclick="escolherpudim()">
+      <img
+        src="https://www.sabornamesa.com.br/media/k2/items/cache/2660be2b2df02c41fc17abdbfc676d66_XL.jpg"
+        alt="pudim"
+      />
+      <h4>Pudim</h4>
+      <p>Apenas um lindo e maravilhoso pudim</p>
+      <p class="preco">R$ 7,90</p>
+      <p />
+    </div>
+    <div id="sorvete" class="produto" onclick="escolhersorvete()">
+      <img
+        src="https://polosulsc.com.br/wp-content/uploads/2018/03/Tr%C3%AAs-tipos-e-sabores-de-sorvete-diferentes-1.jpg"
+        alt="sorvete"
+      />
+      <h4>Sorvete bem gelado</h4>
+      <p>Três bolinhas, como na foto</p>
+      <p class="preco">R$ 6,90</p>
+      <p />
+    </div>
+    <div class="botao" onclick="finalizarpedido()">
+      Finalizar Pedido
+    </div>
+
+    <script>
+      let prato;
+      let bebida;
+      let sobremesa;
+      function escolherfrango() {
+        document.getElementById("frango").style.borderColor = "green";
+        document.getElementById("carne").style.borderColor = "white";
+        prato = "frango";
+      }
+      function escolhercarne() {
+        document.getElementById("carne").style.borderColor = "green";
+        document.getElementById("frango").style.borderColor = "white";
+        prato = "carne";
+      }
+      function escolhercoca() {
+        document.getElementById("coca").style.borderColor = "green";
+        document.getElementById("refresco").style.borderColor = "white";
+        bebida = "coca";
+      }
+      function escolherrefresco() {
+        document.getElementById("refresco").style.borderColor = "green";
+        document.getElementById("coca").style.borderColor = "white";
+        bebida = "refresco";
+      }
+      function escolherpudim() {
+        document.getElementById("pudim").style.borderColor = "green";
+        document.getElementById("sorvete").style.borderColor = "white";
+        sobremesa = "pudim";
+      }
+      function escolhersorvete() {
+        document.getElementById("pudim").style.borderColor = "white";
+        document.getElementById("sorvete").style.borderColor = "green";
+        sobremesa = "sorvete";
+      }
+      function finalizarpedido() {
+        let mansagem;
+        mensagem =
+          "Olá, gostaria de pedir um combo:  " +
+          prato +
+          " , " +
+          bebida +
+          " e " +
+          sobremesa;
+        // window.open("https://wa.me/+5521999999999?text=lalala");
+        window.open("https://wa.me/+5584987714796?text=" + mensagem);
+      }
+    </script>
+  </body>
+</html>
